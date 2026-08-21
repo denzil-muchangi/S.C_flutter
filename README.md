@@ -14,6 +14,16 @@ A premium, highly responsive calculator built with Flutter, featuring a modern g
 - **Overflow Resilience**: Built to handle various screen sizes and system scaling without layout crashes.
 - **Modern Theme**: Clean dark theme utilizing Material 3 principles.
 
+## 📸 App Snapshots
+
+| Mobile Portrait | Mobile Landscape |
+| :---: | :---: |
+| ![Mobile Portrait](snapshots/mobile.png) | ![Mobile Landscape](snapshots/mobile_landscape.png) |
+
+| Tablet Portrait | Tablet Landscape (with History) |
+| :---: | :---: |
+| ![Tablet Portrait](snapshots/tablet_portrait.png) | ![Tablet Landscape](snapshots/tablet_landscape.png) |
+
 ## 🏗️ Project Structure
 
 The project follows a clean, modular architecture to make it easy to learn and extend:
@@ -25,6 +35,7 @@ lib/
 ├── screens/           # Main UI screens (CalculatorScreen).
 ├── widgets/           # Reusable UI components (Buttons, Displays).
 └── main.dart          # Application entry point and system configuration.
+snapshots/             # Screenshots and design references.
 ```
 
 ## 🚀 Getting Started
