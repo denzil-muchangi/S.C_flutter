@@ -1,17 +1,60 @@
-# simple_calculator
+# Modern Glass Calculator
 
-A new Flutter project.
+A premium, highly responsive calculator built with Flutter, featuring a modern glassmorphic design, haptic feedback, and a seamless native feel for both mobile and tablet devices.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- **Modern Glassmorphism**: A sleek UI with subtle gradients, soft shadows, and refined borders for a premium aesthetic.
+- **Dual-Display System**: Simultaneously view your full expression (e.g., `5 + 3 =`) and the live result/preview.
+- **Adaptive UI/UX**:
+  - **Portrait (Mobile)**: A classic, focused calculator experience.
+  - **Landscape (Mobile)**: Intelligent side-by-side layout (Display on left, Buttons on right) to maximize vertical space.
+  - **Tablet Layout**: Automatically detects large screens and adds a dedicated **History Panel**.
+- **Tactile Feedback**: Integrated haptic feedback (light/medium impacts) provides a physical, native feel during interaction.
+- **Overflow Resilience**: Built to handle various screen sizes and system scaling without layout crashes.
+- **Modern Theme**: Clean dark theme utilizing Material 3 principles.
 
-A few resources to get you started if this is your first Flutter project:
+## 🏗️ Project Structure
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+The project follows a clean, modular architecture to make it easy to learn and extend:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+lib/
+├── constants/         # Theme colors, dimensions, and static strings.
+├── models/            # Business logic and state management (CalculatorState).
+├── screens/           # Main UI screens (CalculatorScreen).
+├── widgets/           # Reusable UI components (Buttons, Displays).
+└── main.dart          # Application entry point and system configuration.
+```
+
+## 🚀 Getting Started
+
+1.  **Clone the project**:
+    ```bash
+    git clone https://github.com/your-username/simple_calculator.git
+    ```
+2.  **Install dependencies**:
+    ```bash
+    flutter pub get
+    ```
+3.  **Run the app**:
+    ```bash
+    flutter run
+    ```
+
+## 📚 Key Concepts Used
+
+- **State Management**: Using `StatefulWidget` and a dedicated `CalculatorState` class to separate logic from UI.
+- **Responsive Layouts**: Leveraging `LayoutBuilder` and `MediaQuery` for adaptive design.
+- **TextEditingControllers**: Used to drive the display fields, providing a native text feel without allowing manual user input.
+- **Haptic Feedback**: Using `flutter/services.dart` to trigger device vibrations for button presses.
+- **Animations**: `Transform.scale` is used for smooth button-press effects.
+
+## 📱 Platforms Supported
+
+- ✅ Android (Optimized for Mobile & Tablet)
+- ✅ iOS (Optimized for Mobile & Tablet)
+- ✅ Web & Desktop (Adaptive layout support)
+
+---
+*Created with ❤️ using Flutter.*
