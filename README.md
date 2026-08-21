@@ -1,4 +1,4 @@
-# Modern Glass Calculator
+# Simple Calculator
 
 A premium, highly responsive calculator built with Flutter, featuring a modern glassmorphic design, haptic feedback, and a seamless native feel for both mobile and tablet devices.
 
