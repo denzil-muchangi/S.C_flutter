@@ -13,9 +13,32 @@ class CalculatorScreen extends StatefulWidget {
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
   final CalculatorState _calculator = CalculatorState();
+  final TextEditingController _inputController = TextEditingController();
+  final TextEditingController _resultController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _updateControllers();
+  }
+
+  @override
+  void dispose() {
+    _inputController.dispose();
+    _resultController.dispose();
+    super.dispose();
+  }
+
+  void _updateControllers() {
+    final input = '${_calculator.previousValue} ${_calculator.operation}'.trim();
+    _inputController.text = input;
+    _resultController.text = _calculator.display;
+  }
 
   void _setState() {
-    setState(() {});
+    setState(() {
+      _updateControllers();
+    });
   }
 
   @override
@@ -47,9 +70,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           children: [
             // Display
             CalculatorDisplay(
-              display: _calculator.display,
-              previousValue: _calculator.previousValue,
-              operation: _calculator.operation,
+              inputController: _inputController,
+              resultController: _resultController,
             ),
             // Button Grid
             Expanded(

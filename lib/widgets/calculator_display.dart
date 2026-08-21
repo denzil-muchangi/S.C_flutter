@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import '../constants/app_constants.dart';
 
 class CalculatorDisplay extends StatelessWidget {
-  final String display;
-  final String previousValue;
-  final String operation;
+  final TextEditingController inputController;
+  final TextEditingController resultController;
 
   const CalculatorDisplay({
     super.key,
-    required this.display,
-    required this.previousValue,
-    required this.operation,
+    required this.inputController,
+    required this.resultController,
   });
 
   @override
@@ -19,7 +17,7 @@ class CalculatorDisplay extends StatelessWidget {
       margin: const EdgeInsets.all(AppDimensions.containerPadding),
       padding: const EdgeInsets.symmetric(
         horizontal: AppDimensions.containerPadding,
-        vertical: 32.0,
+        vertical: 24.0,
       ),
       decoration: BoxDecoration(
         color: AppColors.displayBackground,
@@ -40,30 +38,41 @@ class CalculatorDisplay extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          if (previousValue.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Text(
-                '$previousValue $operation',
-                style: const TextStyle(
-                  fontSize: AppDimensions.operationFontSize,
-                  color: AppColors.textSecondary,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
-                ),
-              ),
+          TextField(
+            controller: inputController,
+            readOnly: true,
+            showCursor: false,
+            enableInteractiveSelection: false,
+            textAlign: TextAlign.right,
+            style: const TextStyle(
+              fontSize: AppDimensions.operationFontSize,
+              color: AppColors.textSecondary,
+              fontWeight: FontWeight.w500,
+              letterSpacing: 0.5,
             ),
-          Text(
-            display,
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              isDense: true,
+              contentPadding: EdgeInsets.only(bottom: 8.0),
+            ),
+          ),
+          TextField(
+            controller: resultController,
+            readOnly: true,
+            showCursor: false,
+            enableInteractiveSelection: false,
+            textAlign: TextAlign.right,
             style: const TextStyle(
               fontSize: AppDimensions.displayFontSize,
               fontWeight: FontWeight.w700,
               color: AppColors.textPrimary,
               letterSpacing: -1.0,
             ),
-            textAlign: TextAlign.end,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              isDense: true,
+              contentPadding: EdgeInsets.zero,
+            ),
           ),
         ],
       ),
